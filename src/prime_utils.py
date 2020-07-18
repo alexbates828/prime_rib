@@ -8,7 +8,7 @@ def is_prime(n: int) -> bool:
     if n in [0, 1]:
         return False
     sqrtn = ceil(sqrt(n))
-    for i in range(2, sqrtn+1, 2):
+    for i in range(3, sqrtn+1, 2):
         if n%i == 0:
             return False
     return True
