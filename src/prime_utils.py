@@ -38,18 +38,20 @@ def range_by_with_mod(n: int, b: int):
     pass
 
 def is_prime_with_range_by_with_mod(n: int, b: int = None) -> bool:
+    # "good" choices of b are much larger than 1 and much smaller than n-1
     if type(n)==float:
         raise TypeError("Input parameter n should be of type 'int'.")
     if n<0:
-        return is_prime(-n)
+        return is_prime_with_range_by_with_mod(-n)
     if n in [0, 1]:
         return False
     if n==2:
         return True
-    sqrtn = b or ceil(sqrt(n))
+    sqrtn = ceil(sqrt(n))
+    b = b or sqrtn
     try:
-        for i in range_by_with_mod(n, sqrtn):
-            if i<=1:
+        for i in range_by_with_mod(n, b):
+            if i>sqrtn or i<=1:
                 continue
             if n%i == 0:
                 return False
