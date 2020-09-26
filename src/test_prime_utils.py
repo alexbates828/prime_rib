@@ -94,11 +94,6 @@ class TestPrimeUtils(unittest.TestCase):
         result = prime_utils.is_prime_with_range_by_with_mod(n)
         self.assertFalse(result)
 
-    def test_is_prime_with_range_by_mod_returns_true_for_large_prime(self):
-        n = 23215657731638
-        result = prime_utils.is_prime_with_range_by_with_mod(n, 1)
-        self.assertTrue(result)
-
     def test_range_by_with_mod_returns_all_nums_for_relatively_prime(self):
         n = 101
         b = 45
